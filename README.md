@@ -41,11 +41,16 @@ Ensure that you have also copied (and updated with your secrets) the `secrets.py
 Yes, this is kind of circular, as these are the stats that the Digital Signage will show.  Here they are for the stats
 for the project itself!
 
+[![Build](https://github.com/BoggyBumblebee/devhealth-digital-signage/actions/workflows/build.yml/badge.svg)](https://github.com/BoggyBumblebee/devhealth-digital-signage/actions/workflows/build.yml)
+
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
+
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
+
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=coverage)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=devhealth-digital-signage&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=devhealth-digital-signage)
