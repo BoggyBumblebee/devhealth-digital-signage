@@ -25,8 +25,13 @@ run this.
 
 [CircuitPython Libraries](https://circuitpython.org/libraries)
 
-- adafruit_matrixportal - this library is the main library used with the MatrixPortal.
-- adafruit_bitmap_font - we have fancy font support, and it's easy to make new fonts. This library reads and parses font
-files
+- adafruit_matrixportal - this library is the main library used with the MatrixPortal
+- adafruit_bitmap_font - we have fancy font support, and it's easy to make new fonts. This library reads and parses font files
 - adafruit_display_text - not surprisingly, it displays text on the screen
 - adafruit_lis3dh.mpy - this library is used for the onboard accelerometer to detect the orientation of the MatrixPortal
+
+## Installation
+
+To use with CircuitPython, you need to first install the above libraries, into the lib folder on your CIRCUITPY drive.
+Ensure that you have also copied (and updated with your secrets) the `secrets.py`. Finally, you need to update
+`code.py` with the code from this repository.
