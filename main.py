@@ -33,26 +33,7 @@ app = FastAPI()
 )
 def read_badges_sonarqube(project: str, metric: str, dither: bool = True):
     url = "https://sonarcloud.io/api/project_badges/measure?project={0}&metric={1}".format(project, metric)
-
-    try:
-        # Import SVG in as a PNG (Stream)
-        png = cairosvg.svg2png(url=url)
-        img = Image.open(BytesIO(png))
-
-        if dither:
-            # Perform the gamma correction and error-diffusion dithering on the image, so it looks nice on an 
-            # Adafruit Matrix Portal
-            bmp = process(img, REDUCE, PASSTHROUGH)
-        else:
-            # Remove the Alpha from the PNG, as Bitmaps do not have/understand them
-            r, g, b, _ = img.split()
-            bmp = Image.merge("RGB", (r, g, b))
-
-        # Return the BMP
-        return Response(content=image_to_byte_array(bmp), media_type="image/bmp")
-
-    except urllib.error.HTTPError as err:
-        raise HTTPException(status_code=404, detail="Badge not found")
+    return read_badges(url, dither)
 
 @app.get(
     "/badges/github",
@@ -65,7 +46,9 @@ def read_badges_sonarqube(project: str, metric: str, dither: bool = True):
 )
 def read_badges_github(account: str, repository: str, dither: bool = True):
     url = "https://github.com/{0}/{1}/actions/workflows/build.yml/badge.svg".format(account, repository)
+    return read_badges(url, dither)
 
+def read_badges(url: str, dither: bool):
     try:
         # Import SVG in as a PNG (Stream)
         png = cairosvg.svg2png(url=url)
