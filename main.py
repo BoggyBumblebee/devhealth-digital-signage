@@ -52,7 +52,7 @@ def read_badges(url: str, dither: bool):
     try:
         # Import SVG in as a PNG (Stream)
         png = cairosvg.svg2png(url=url)
-        img = png # Image.open(BytesIO(png))
+        img = Image.open(BytesIO(png))
 
         if dither:
             # Perform the gamma correction and error-diffusion dithering on the image, so it looks nice on an 
