@@ -80,10 +80,10 @@ def read_badges(url: str, dither: bool):
         return Response(content=image_to_byte_array(bmp), media_type="image/bmp")
 
     except urllib.error.HTTPError as err:
-        raise HTTPException(status_code=404, detail="Badge not found")
+        raise HTTPException(status_code=404, detail="Badge not found " + err.getcode)
 
 def image_to_byte_array(image: Image) -> bytes:
-    imgByteArr = BytesIO()
-    image.save(imgByteArr, format="bmp")
-    imgByteArr = imgByteArr.getvalue()
-    return imgByteArr
+    img_bytes = BytesIO()
+    image.save(img_bytes, format="bmp")
+    img_bytes = img_bytes.getvalue()
+    return img_bytes
