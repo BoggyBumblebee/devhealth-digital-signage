@@ -48,6 +48,19 @@ def read_badges_github(account: str, repository: str, dither: bool = True):
     url = "https://github.com/{0}/{1}/actions/workflows/build.yml/badge.svg".format(account, repository)
     return read_badges(url, dither)
 
+@app.get(
+    "/badges/github/contributions",
+    responses = {
+        200: {
+            "content": {"image/bmp": {}}
+        }
+    },
+    response_class=Response,
+)
+def read_badges_github_contributions(username: str, dither: bool = True):
+    url = "https://ghchart.rshah.org/{0}".format(username)
+    return read_badges(url, dither)
+
 def read_badges(url: str, dither: bool):
     try:
         # Import SVG in as a PNG (Stream)
