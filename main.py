@@ -52,14 +52,14 @@ def read_badges(url: str, dither: bool):
     try:
         # Import SVG in as a PNG (Stream)
         png = cairosvg.svg2png(url=url)
-        img = Image.open(BytesIO(png))
+        img = png # Image.open(BytesIO(png))
 
         if dither:
             # Perform the gamma correction and error-diffusion dithering on the image, so it looks nice on an 
             # Adafruit Matrix Portal
             bmp = process(img, REDUCE, PASSTHROUGH)
         else:
-            # Remove the Alpha from the PNG, as Bitmaps do not have/understand them
+            # If, no dithering, remove the Alpha from the PNG, as Bitmaps do not have/understand them
             r, g, b, _ = img.split()
             bmp = Image.merge("RGB", (r, g, b))
 
