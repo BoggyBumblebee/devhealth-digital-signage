@@ -12,7 +12,6 @@ MIT license, all text above must be included in any redistribution.
 BDF fonts from the X.Org project.
 """
 
-# pylint: disable=import-error
 import gc
 import time
 import math
@@ -57,11 +56,9 @@ SMALL_FONT.load_glyphs('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123
 GROUP = displayio.Group()
 
 # Element 0 is a stand-in item (splash screen), later replaced with the scrolling badges
-# pylint: disable=bare-except
 try:
     FILENAME = 'images/devhealth.bmp'
 
-    # CircuitPython 7+ compatible
     BITMAP = displayio.OnDiskBitmap(FILENAME)
     TILE_GRID = displayio.TileGrid(BITMAP, pixel_shader=BITMAP.pixel_shader)
 
